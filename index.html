@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mina Safwat | Cyber Security</title>
+    <!-- Tailwind & Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- AOS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="./images/mina.jpeg">
+</head>
+<body class="bg-dark text-white">
+
+    <!-- Matrix Rain Canvas -->
+    <canvas id="matrixCanvas"></canvas>
+
+    <!-- 3D Background Canvas -->
+    <canvas id="bgCanvas"></canvas>
+
+    <!-- Main Content -->
+    <div class="content-wrapper">
+        <!-- Navigation بار - خفيف وواضح -->
+  <button id="mobile-hud-toggle" class="d-lg-none">
+    <i class="fas fa-bars"></i>
+</button>
+
+<div id="cyber-hud" class="hud-collapsed">
+    <button id="mobile-hud-toggle" class="d-lg-none">
+    <i class="fas fa-bars"></i>
+    </button>
+
+    <div class="hud-left-nav">
+        <a href="#home" class="hud-item active"><span class="hud-num">01</span> <span class="hud-text">HOME</span></a>
+        <a href="#services" class="hud-item"><span class="hud-num">02</span> <span class="hud-text">SERVICES</span></a>
+        <a href="#experience" class="hud-item"><span class="hud-num">03</span> <span class="hud-text">EXPERIENCE</span></a>
+        <a href="#projects" class="hud-item"><span class="hud-num">04</span> <span class="hud-text">PROJECTS</span></a>
+        <a href="#about" class="hud-item"><span class="hud-num">05</span> <span class="hud-text">ABOUT_ME</span></a>
+        <a href="#contact" class="hud-item"><span class="hud-num">06</span> <span class="hud-text">CONTACT</span></a>
+    </div>
+
+    <div class="hud-right-status d-none d-lg-block"> <div class="status-indicator">
+            <span class="status-dot"></span>
+            <span class="status-label">MINA_SAFWAT: ALWAYS AVAILABLE</span>
+        </div>
+        <a href="#contact" class="hud-contact-btn">
+            <i class="fas fa-terminal"></i> CONTACT_ME
+        </a>
+    </div>
+</div>
+<section id="home" class="min-h-screen d-flex align-items-center pt-5">
+    <div class="container" style="position: relative; z-index: 100;">
+        <div class="row align-items-center">
+            <div class="col-lg-7" data-aos="fade-right">
+                <div class="terminal-header mb-3 font-mono">
+                    <span class="text-green-500">>> IDENTITY_CONFIRMED</span>
+                    <span class="text-gray-500 ms-3">LOCATION: SOHAG, EGYPT </span>
+                </div>
+                
+                <h1 class="display-2 fw-bold text-white font-mono mb-2">MINA SAFWAT </h1>
+                <h2 class="h3 text-green-400 font-mono mb-4">
+                    Head of Cyber Security @ GDG AAST Aswan 
+                </h2>
+
+                <div class="cv-description p-4 border-start border-green-500 bg-black/40 backdrop-blur-sm mb-5">
+                    <p class="lead text-gray-300 font-mono">
+                        Cybersecurity enthusiast with practical experience in <span class="text-white">Penetration Testing</span>, 
+                        <span class="text-white">Vulnerability Assessment</span>, and <span class="text-red-500">Red Teaming</span>. 
+                        Expertise in identifying web and network vulnerabilities.
+                    </p>
+                    <div class="mt-3 d-flex flex-wrap gap-3">
+                        <span class="badge border border-green-500/50 text-green-400 p-2 font-mono">#TryHackMe_Top_5% </span>
+                        <span class="badge border border-green-500/50 text-green-400 p-2 font-mono">#HackerOne_Researcher </span>
+                        <span class="badge border border-red-500/50 text-red-400 p-2 font-mono">#CodeAlpha_Intern </span>
+                    </div>
+                </div>
+
+                <div class="d-flex gap-3">
+                    <a href="#contact" class="cyber-btn-v3">CONNECTION</a>
+                    <a href="#projects" class="cyber-btn-v3 outline">ACCESS_PROJECTS</a>
+                </div>
+            </div>
+
+            <div class="col-lg-5 text-center mt-5 mt-lg-0" data-aos="zoom-in">
+                <div class="profile-container-pro">
+                    <img src="./images/mina.jpeg" class="img-fluid profile-img-main" alt="Mina Safwat Cyber Security">
+                    
+                    <div class="hud-frame">
+                        <div class="scan-effect"></div>
+                        <div class="corner top-left"></div>
+                        <div class="corner top-right"></div>
+                        <div class="corner bottom-left"></div>
+                        <div class="corner bottom-right"></div>
+                    </div>
+                    
+                    <div class="floating-data dns-label">IP: 192.168.1.1</div>
+                    <div class="floating-data status-label">SYSTEM_AUTHORIZED</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style> @keyframes scan { 0% {top:0} 100% {top:100%} } </style>
+        <!-- Hero Section -->
+        <section id="home" class="min-h-screen flex items-center justify-center relative">
+            <div class="container text-center" data-aos="zoom-in" data-aos-duration="1500">
+                <!-- الصورة الشخصية (لو حابب تضيفها) -->
+                <div class="profile-badge mb-4">
+                    <span class="badge bg-green-900 text-green-400 px-4 py-2 rounded-full">
+                        <i class="fas fa-certificate me-2"></i>Offensive Security Certified | TryHackMe Top 5%
+                    </span>
+                </div>
+                <h1 class="hero-title text-6xl md:text-8xl font-bold mb-4">
+                    <span class="typewriter-text"></span>
+                </h1>
+                <p class="text-2xl md:text-3xl text-green-400 mb-3">Head of Cyber Security @ GDG AAST Aswan</p>
+                <p class="text-xl text-red-400 mb-2">Former Code Alpha Intern | HackerOne Participant</p>
+                <p class="text-lg text-gray-400 mb-8 max-w-3xl mx-auto">"Securing tomorrow's digital landscape today. Penetration Tester | Red Teamer | Bug Bounty Hunter"</p>
+                
+                <!-- Stats Section -->
+                <div class="stats-container flex flex-wrap justify-center gap-8 mb-8">
+                    <div class="stat-item">
+                        <div class="stat-number text-4xl font-bold text-green-400">50+</div>
+                        <div class="stat-label text-gray-400">Vulnerabilities Found</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number text-4xl font-bold text-green-400">1+</div>
+                        <div class="stat-label text-gray-400">Year Experience</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number text-4xl font-bold text-green-400">100+</div>
+                        <div class="stat-label text-gray-400">CTF Challenges</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number text-4xl font-bold text-green-400">3</div>
+                        <div class="stat-label text-gray-400">Bug Bounty Reports</div>
+                    </div>
+                </div>
+
+                <div class="flex gap-4 justify-center">
+                    <a href="#contact" class="cyber-btn">Contact Me <i class="fas fa-arrow-right ms-2"></i></a>
+                    <a href="#projects" class="cyber-btn outline">View Projects <i class="fas fa-code ms-2"></i></a>
+                </div>
+                <div class="mt-12 scroll-indicator">
+                    <span class="text-sm opacity-50">scroll to explore</span>
+                    <i class="fas fa-chevron-down animate-bounce block"></i>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section - مفصل جداً -->
+        <section id="services" class="py-20 px-5">
+            <div class="container mx-auto">
+                <div class="text-center mb-12" data-aos="fade-down">
+                    <span class="text-green-400 text-sm font-mono">// SERVICES</span>
+                    <h2 class="section-title text-5xl font-bold">What I Can <span class="text-red-500">Break & Fix</span></h2>
+                    <p class="text-gray-400 mt-4">Professional cybersecurity services for individuals and enterprises</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Service Card 1 - Penetration Testing -->
+                    <div class="service-card" data-aos="flip-left">
+                        <div class="card-header flex justify-between items-start">
+                            <i class="fas fa-shield-halved fa-3x text-green-400"></i>
+                            <span class="bg-red-900 text-red-400 px-3 py-1 rounded-full text-sm">Starting $499</span>
+                        </div>
+                        <h3 class="text-2xl font-bold mt-4">Penetration Testing</h3>
+                        <p class="text-gray-400 mt-2">Comprehensive security assessment for web applications, networks, and mobile apps.</p>
+                        <ul class="mt-4 space-y-2 text-sm">
+                            <li><i class="fas fa-check text-green-400 me-2"></i>OWASP Top 10 Methodology</li>
+                            <li><i class="fas fa-check text-green-400 me-2"></i>Detailed Report with PoC</li>
+                            <li><i class="fas fa-check text-green-400 me-2"></i>Remediation Guidance</li>
+                        </ul>
+                        <div class="card-footer mt-6 pt-4 border-t border-gray-800">
+                            <span class="text-sm opacity-70">Tools: Nmap, Burp Suite, Metasploit</span>
+                        </div>
+                    </div>
+
+                    <!-- Service Card 2 - Red Teaming -->
+                    <div class="service-card" data-aos="flip-left" data-aos-delay="100">
+                        <div class="card-header flex justify-between items-start">
+                            <i class="fas fa-skull fa-3x text-red-500"></i>
+                            <span class="bg-red-900 text-red-400 px-3 py-1 rounded-full text-sm">Custom Quote</span>
+                        </div>
+                        <h3 class="text-2xl font-bold mt-4">Red Teaming</h3>
+                        <p class="text-gray-400 mt-2">Simulate real-world adversaries to test your defense capabilities.</p>
+                        <ul class="mt-4 space-y-2 text-sm">
+                            <li><i class="fas fa-check text-green-400 me-2"></i>APT Simulation</li>
+                            <li><i class="fas fa-check text-green-400 me-2"></i>Social Engineering</li>
+                            <li><i class="fas fa-check text-green-400 me-2"></i>Evasion Techniques</li>
+                        </ul>
+                        <div class="card-footer mt-6 pt-4 border-t border-gray-800">
+                            <span class="text-sm opacity-70">C2 Frameworks | Phishing | Payloads</span>
+                        </div>
+                    </div>
+
+                    <!-- Service Card 3 - Bug Bounty -->
+                    <div class="service-card" data-aos="flip-left" data-aos-delay="200">
+                        <div class="card-header flex justify-between items-start">
+                            <i class="fas fa-bug fa-3x text-yellow-500"></i>
+                            <span class="bg-red-900 text-red-400 px-3 py-1 rounded-full text-sm">Bounty Based</span>
+                        </div>
+                        <h3 class="text-2xl font-bold mt-4">Bug Bounty Hunting</h3>
+                        <p class="text-gray-400 mt-2">Find critical vulnerabilities before the bad guys do.</p>
+                        <ul class="mt-4 space-y-2 text-sm">
+                            <li><i class="fas fa-check text-green-400 me-2"></i>XSS, SQLi, SSRF, IDOR</li>
+                            <li><i class="fas fa-check text-green-400 me-2"></i>Authentication Flaws</li>
+                            <li><i class="fas fa-check text-green-400 me-2"></i>Business Logic Errors</li>
+                        </ul>
+                        <div class="card-footer mt-6 pt-4 border-t border-gray-800">
+                            <span class="text-sm opacity-70">HackerOne | Intigriti | Bugcrowd</span>
+                        </div>
+                    </div>
+
+                    <!-- Service Card 4 - Secure Code Review -->
+                    <div class="service-card" data-aos="flip-left" data-aos-delay="300">
+                        <div class="card-header flex justify-between items-start">
+                            <i class="fas fa-code fa-3x text-blue-400"></i>
+                            <span class="bg-red-900 text-red-400 px-3 py-1 rounded-full text-sm">$299/project</span>
+                        </div>
+                        <h3 class="text-2xl font-bold mt-4">Secure Code Review</h3>
+                        <p class="text-gray-400 mt-2">Analyze source code for security vulnerabilities.</p>
+                        <ul class="mt-4 space-y-2 text-sm">
+                            <li><i class="fas fa-check text-green-400 me-2"></i>C/C++, Python, JavaScript</li>
+                            <li><i class="fas fa-check text-green-400 me-2"></i>SAST Methodology</li>
+                            <li><i class="fas fa-check text-green-400 me-2"></i>Fix Recommendations</li>
+                        </ul>
+                        <div class="card-footer mt-6 pt-4 border-t border-gray-800">
+                            <span class="text-sm opacity-70">SonarQube | Manual Review</span>
+                        </div>
+                    </div>
+
+                    <!-- Service Card 5 - Vulnerability Assessment -->
+                    <div class="service-card" data-aos="flip-left" data-aos-delay="400">
+                        <div class="card-header flex justify-between items-start">
+                            <i class="fas fa-search fa-3x text-purple-400"></i>
+                            <span class="bg-red-900 text-red-400 px-3 py-1 rounded-full text-sm">$399</span>
+                        </div>
+                        <h3 class="text-2xl font-bold mt-4">Vulnerability Assessment</h3>
+                        <p class="text-gray-400 mt-2">Automated + manual scanning for known vulnerabilities.</p>
+                        <ul class="mt-4 space-y-2 text-sm">
+                            <li><i class="fas fa-check text-green-400 me-2"></i>Network & Web Scanning</li>
+                            <li><i class="fas fa-check text-green-400 me-2"></i>Risk Prioritization</li>
+                            <li><i class="fas fa-check text-green-400 me-2"></i>Compliance Checks</li>
+                        </ul>
+                        <div class="card-footer mt-6 pt-4 border-t border-gray-800">
+                            <span class="text-sm opacity-70">Nessus | OpenVAS | Nikto</span>
+                        </div>
+                    </div>
+
+                    <!-- Service Card 6 - Security Training -->
+                    <div class="service-card" data-aos="flip-left" data-aos-delay="500">
+                        <div class="card-header flex justify-between items-start">
+                            <i class="fas fa-chalkboard-user fa-3x text-orange-400"></i>
+                            <span class="bg-red-900 text-red-400 px-3 py-1 rounded-full text-sm">Contact</span>
+                        </div>
+                        <h3 class="text-2xl font-bold mt-4">Security Training</h3>
+                        <p class="text-gray-400 mt-2">Workshops on ethical hacking and secure coding.</p>
+                        <ul class="mt-4 space-y-2 text-sm">
+                            <li><i class="fas fa-check text-green-400 me-2"></i>Hands-on Labs</li>
+                            <li><i class="fas fa-check text-green-400 me-2"></i>CTF Challenges</li>
+                            <li><i class="fas fa-check text-green-400 me-2"></i>Beginner to Advanced</li>
+                        </ul>
+                        <div class="card-footer mt-6 pt-4 border-t border-gray-800">
+                            <span class="text-sm opacity-70">TryHackMe | HTB | Custom Labs</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience & Certifications Section -->
+        <section id="experience" class="py-20 px-5 bg-black bg-opacity-60">
+            <div class="container mx-auto">
+                <div class="text-center mb-12" data-aos="fade-down">
+                    <span class="text-red-400 text-sm font-mono">// TIMELINE</span>
+                    <h2 class="section-title text-5xl font-bold">Professional <span class="text-green-400">Journey</span></h2>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <!-- Experience Column -->
+                    <div data-aos="fade-right">
+                        <h3 class="text-2xl font-bold mb-6 flex items-center">
+                            <i class="fas fa-briefcase text-green-400 me-3"></i> Work Experience
+                        </h3>
+                        
+                        <div class="timeline-item mb-6">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content bg-gray-900 p-5 rounded-lg border-l-4 border-green-400">
+                                <div class="flex justify-between items-start">
+                                    <h4 class="text-xl font-bold">Cybersecurity Intern</h4>
+                                    <span class="text-green-400 text-sm">2024 - 2025</span>
+                                </div>
+                                <p class="text-red-400 mb-2">Code Alpha</p>
+                                <ul class="text-gray-400 text-sm space-y-1">
+                                    <li>• Hands-on red teaming and offensive security tasks</li>
+                                    <li>• Network and web application security assessments</li>
+                                    <li>• Manual pentesting in real and simulated environments</li>
+                                    <li>• Tools: Nmap, Burp Suite, Metasploit</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item mb-6">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content bg-gray-900 p-5 rounded-lg border-l-4 border-green-400">
+                                <div class="flex justify-between items-start">
+                                    <h4 class="text-xl font-bold">Bug Bounty Hunter</h4>
+                                    <span class="text-green-400 text-sm">2024 - Present</span>
+                                </div>
+                                <p class="text-red-400 mb-2">HackerOne Platform</p>
+                                <ul class="text-gray-400 text-sm space-y-1">
+                                    <li>• Discovered XSS, SQLi, and misconfigurations</li>
+                                    <li>• Submitted valid reports to private programs</li>
+                                    <li>• Top 10% on multiple leaderboards</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content bg-gray-900 p-5 rounded-lg border-l-4 border-green-400">
+                                <div class="flex justify-between items-start">
+                                    <h4 class="text-xl font-bold">Head of Cyber Security</h4>
+                                    <span class="text-green-400 text-sm">2025 - Present</span>
+                                </div>
+                                <p class="text-red-400 mb-2">GDG AAST Aswan</p>
+                                <ul class="text-gray-400 text-sm space-y-1">
+                                    <li>• Leading the cybersecurity team</li>
+                                    <li>• Organizing workshops and CTF events</li>
+                                    <li>• Mentoring students in offensive security</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Certifications & Education Column -->
+                    <div data-aos="fade-left">
+                        <h3 class="text-2xl font-bold mb-6 flex items-center">
+                            <i class="fas fa-certificate text-green-400 me-3"></i> Certifications & Education
+                        </h3>
+
+                        <div class="grid grid-cols-1 gap-4">
+                            <div class="cert-card bg-gray-900 p-5 rounded-lg">
+                                <i class="fas fa-graduation-cap text-3xl text-green-400 mb-3"></i>
+                                <h4 class="text-xl font-bold">B.Sc. Computer Science</h4>
+                                <p class="text-green-400">Arab Academy for Science & Technology</p>
+                                <p class="text-gray-400 text-sm">Second Year Student | GPA: 2.20</p>
+                            </div>
+
+                            <div class="cert-card bg-gray-900 p-5 rounded-lg">
+                                <i class="fas fa-shield text-3xl text-green-400 mb-3"></i>
+                                <h4 class="text-xl font-bold">One-Year Experience Certificate</h4>
+                                <p class="text-green-400">Offensive Security</p>
+                                <p class="text-gray-400 text-sm">Penetration Testing | Red Teaming</p>
+                            </div>
+
+                            <div class="cert-card bg-gray-900 p-5 rounded-lg">
+                                <i class="fas fa-flag text-3xl text-green-400 mb-3"></i>
+                                <h4 class="text-xl font-bold">TryHackMe Top 5%</h4>
+                                <p class="text-green-400">Completed 30+ Rooms</p>
+                                <div class="progress-bar mt-3">
+                                    <div class="progress-fill" style="width: 85%"></div>
+                                </div>
+                            </div>
+
+                            <div class="cert-card bg-gray-900 p-5 rounded-lg">
+                                <i class="fas fa-trophy text-3xl text-green-400 mb-3"></i>
+                                <h4 class="text-xl font-bold">Hack The Box</h4>
+                                <p class="text-green-400">20+ Machines Owned</p>
+                                <div class="progress-bar mt-3">
+                                    <div class="progress-fill" style="width: 60%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects / REPO Section - مفصل -->
+        <section id="projects" class="py-20 px-5">
+            <div class="container mx-auto">
+                <div class="text-center mb-12" data-aos="fade-down">
+                    <span class="text-green-400 text-sm font-mono">// ARSENAL</span>
+                    <h2 class="section-title text-5xl font-bold">Public <span class="text-red-500">Repositories</span></h2>
+                    <p class="text-gray-400 mt-4">Open-source security tools and scripts</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Project 1 -->
+                    <div class="project-card" data-aos="fade-up">
+                        <div class="flex justify-between items-start">
+                            <i class="fab fa-github fa-3x text-gray-400"></i>
+                            <span class="bg-green-900 text-green-400 px-3 py-1 rounded-full text-xs">Python</span>
+                        </div>
+                        <h3 class="text-xl font-bold mt-4">AutoReconX</h3>
+                        <p class="text-gray-400 text-sm mt-2">Automated reconnaissance tool for penetration testers. Scans subdomains, ports, and services.</p>
+                        <div class="flex gap-2 mt-4">
+                            <span class="bg-gray-800 px-3 py-1 rounded text-xs">33 stars</span>
+                            <span class="bg-gray-800 px-3 py-1 rounded text-xs">12 forks</span>
+                        </div>
+                        <div class="tags mt-4">
+                            <span>Python</span>
+                            <span>Bash</span>
+                            <span>Docker</span>
+                        </div>
+                        <a href="#" class="repo-link mt-6 inline-block">
+                            View Repository <i class="fas fa-arrow-right ms-2"></i>
+                        </a>
+                    </div>
+
+                    <!-- Project 2 -->
+                    <div class="project-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="flex justify-between items-start">
+                            <i class="fab fa-github fa-3x text-gray-400"></i>
+                            <span class="bg-green-900 text-green-400 px-3 py-1 rounded-full text-xs">Python</span>
+                        </div>
+                        <h3 class="text-xl font-bold mt-4">SQLi-Detector</h3>
+                        <p class="text-gray-400 text-sm mt-2">Advanced SQL injection detection tool with payload generation and blind SQLi support.</p>
+                        <div class="flex gap-2 mt-4">
+                            <span class="bg-gray-800 px-3 py-1 rounded text-xs">47 stars</span>
+                            <span class="bg-gray-800 px-3 py-1 rounded text-xs">8 forks</span>
+                        </div>
+                        <div class="tags mt-4">
+                            <span>Python</span>
+                            <span>SQL</span>
+                            <span>Requests</span>
+                        </div>
+                        <a href="#" class="repo-link mt-6 inline-block">
+                            View Repository <i class="fas fa-arrow-right ms-2"></i>
+                        </a>
+                    </div>
+
+                    <!-- Project 3 -->
+                    <div class="project-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="flex justify-between items-start">
+                            <i class="fab fa-github fa-3x text-gray-400"></i>
+                            <span class="bg-green-900 text-green-400 px-3 py-1 rounded-full text-xs">PowerShell</span>
+                        </div>
+                        <h3 class="text-xl font-bold mt-4">RedTeam-Playbook</h3>
+                        <p class="text-gray-400 text-sm mt-2">Collection of red teaming scripts, techniques, and methodologies for adversary simulation.</p>
+                        <div class="flex gap-2 mt-4">
+                            <span class="bg-gray-800 px-3 py-1 rounded text-xs">89 stars</span>
+                            <span class="bg-gray-800 px-3 py-1 rounded text-xs">23 forks</span>
+                        </div>
+                        <div class="tags mt-4">
+                            <span>PowerShell</span>
+                            <span>C</span>
+                            <span>Metasploit</span>
+                        </div>
+                        <a href="#" class="repo-link mt-6 inline-block">
+                            View Repository <i class="fas fa-arrow-right ms-2"></i>
+                        </a>
+                    </div>
+
+                    <!-- Project 4 -->
+                    <div class="project-card" data-aos="fade-up" data-aos-delay="300">
+                        <div class="flex justify-between items-start">
+                            <i class="fab fa-github fa-3x text-gray-400"></i>
+                            <span class="bg-green-900 text-green-400 px-3 py-1 rounded-full text-xs">C++</span>
+                        </div>
+                        <h3 class="text-xl font-bold mt-4">KeyLogger-Analyzer</h3>
+                        <p class="text-gray-400 text-sm mt-2">Educational keylogger analysis tool for understanding malware behavior.</p>
+                        <div class="flex gap-2 mt-4">
+                            <span class="bg-gray-800 px-3 py-1 rounded text-xs">21 stars</span>
+                            <span class="bg-gray-800 px-3 py-1 rounded text-xs">5 forks</span>
+                        </div>
+                        <div class="tags mt-4">
+                            <span>C++</span>
+                            <span>WinAPI</span>
+                        </div>
+                        <a href="#" class="repo-link mt-6 inline-block">
+                            View Repository <i class="fas fa-arrow-right ms-2"></i>
+                        </a>
+                    </div>
+
+                    <!-- Project 5 -->
+                    <div class="project-card" data-aos="fade-up" data-aos-delay="400">
+                        <div class="flex justify-between items-start">
+                            <i class="fab fa-github fa-3x text-gray-400"></i>
+                            <span class="bg-green-900 text-green-400 px-3 py-1 rounded-full text-xs">JavaScript</span>
+                        </div>
+                        <h3 class="text-xl font-bold mt-4">XSS-Finder</h3>
+                        <p class="text-gray-400 text-sm mt-2">Browser-based XSS scanner with DOM traversal and payload injection.</p>
+                        <div class="flex gap-2 mt-4">
+                            <span class="bg-gray-800 px-3 py-1 rounded text-xs">34 stars</span>
+                            <span class="bg-gray-800 px-3 py-1 rounded text-xs">11 forks</span>
+                        </div>
+                        <div class="tags mt-4">
+                            <span>JavaScript</span>
+                            <span>HTML</span>
+                            <span>Burp</span>
+                        </div>
+                        <a href="#" class="repo-link mt-6 inline-block">
+                            View Repository <i class="fas fa-arrow-right ms-2"></i>
+                        </a>
+                    </div>
+
+                    <!-- Project 6 -->
+                    <div class="project-card" data-aos="fade-up" data-aos-delay="500">
+                        <div class="flex justify-between items-start">
+                            <i class="fab fa-github fa-3x text-gray-400"></i>
+                            <span class="bg-green-900 text-green-400 px-3 py-1 rounded-full text-xs">Bash</span>
+                        </div>
+                        <h3 class="text-xl font-bold mt-4">Linux-Hardening</h3>
+                        <p class="text-gray-400 text-sm mt-2">Automated Linux security hardening script for servers and workstations.</p>
+                        <div class="flex gap-2 mt-4">
+                            <span class="bg-gray-800 px-3 py-1 rounded text-xs">56 stars</span>
+                            <span class="bg-gray-800 px-3 py-1 rounded text-xs">18 forks</span>
+                        </div>
+                        <div class="tags mt-4">
+                            <span>Bash</span>
+                            <span>Linux</span>
+                            <span>Security</span>
+                        </div>
+                        <a href="#" class="repo-link mt-6 inline-block">
+                            View Repository <i class="fas fa-arrow-right ms-2"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- GitHub Stats -->
+                <div class="github-stats mt-12 p-6 bg-gray-900 rounded-lg" data-aos="fade-up">
+                    <div class="flex flex-wrap items-center justify-between">
+                        <div class="flex items-center gap-4">
+                            <i class="fab fa-github fa-4x text-gray-400"></i>
+                            <div>
+                                <h4 class="text-2xl font-bold">GitHub Statistics</h4>
+                                <p class="text-gray-400">@MinaSafwatSec</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-8">
+                            <div>
+                                <div class="text-3xl font-bold text-green-400">12</div>
+                                <div class="text-sm text-gray-400">Repositories</div>
+                            </div>
+                            <div>
+                                <div class="text-3xl font-bold text-green-400">280+</div>
+                                <div class="text-sm text-gray-400">Total Stars</div>
+                            </div>
+                            <div>
+                                <div class="text-3xl font-bold text-green-400">77</div>
+                                <div class="text-sm text-gray-400">Forks</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+          <!-- about me - مفصل -->
+    <section id="about" class="py-20 px-5 bg-black/60 relative overflow-hidden border-t border-green-500/10">
+    <div class="container mx-auto">
+        <div class="text-center mb-16" data-aos="fade-up">
+            <span class="text-green-400 font-mono text-sm">// 04.WHOAMI_DETAILED_REPORT</span>
+            <h2 class="section-title text-5xl font-bold mt-2">Professional <span class="text-red-500">Dossier</span></h2>
+            <div class="h-1 w-24 bg-red-600 mx-auto mt-4 shadow-[0_0_15px_rgba(220,38,38,0.5)]"></div>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-lg-8" data-aos="fade-right">
+                <div class="about-card p-5 border border-gray-800 bg-black/40 h-100 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 p-3 opacity-10"><i class="fas fa-user-secret fa-5x"></i></div>
+                    <h3 class="text-3xl font-bold text-white mb-4 font-mono">Mina Safwat Abdelqodos</h3>
+                    <p class="text-green-400 font-mono mb-6">>> STATUS: Independent Security Researcher | Head of Cyber Security @ GDG AAST Aswan</p>
+                    
+                    <div class="bio-text text-gray-300 leading-relaxed space-y-4">
+                        <p>
+                            Cybersecurity enthusiast with one year of practical experience certificate in offensive security[cite: 10, 24]. 
+                            Currently a second-year Computer Science student at the Arab Academy for Science, Technology & Maritime Transport in Aswan[cite: 12, 13].
+                        </p>
+                        <p>
+                            My expertise lies in penetration testing, vulnerability assessment, and red teaming[cite: 8]. 
+                            I have a proven track record of identifying web and network vulnerabilities, including XSS, SQLi, and misconfigurations, on platforms like TryHackMe, Hack The Box, and HackerOne[cite: 9, 26, 30].
+                        </p>
+                    </div>
+
+                    <div class="flex gap-4 mt-8 pt-6 border-t border-gray-800">
+                        <a href="https://www.linkedin.com/in/mina-safwat-20a693320" target="_blank" class="social-mini"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://github.com/minasafwat429-lgtm" target="_blank" class="social-mini"><i class="fab fa-github"></i></a>
+                        <a href="https://www.facebook.com/share/1BCKcs2Gut/" target="_blank" class="social-mini"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/mina_safwat21" target="_blank" class="social-mini"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4" data-aos="fade-left">
+                <div class="about-card p-5 border border-red-500/20 bg-red-500/5 h-100">
+                    <h3 class="text-xl font-bold text-red-500 mb-4 font-mono"><i class="fas fa-brain me-2"></i>Soft_Skills.log</h3>
+                    <ul class="space-y-3 font-mono text-sm text-gray-300">
+                        <li class="flex items-center gap-2"><i class="fas fa-check-double text-red-500"></i> Leadership & Teamwork [cite: 41]</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-check-double text-red-500"></i> Analytical Thinking [cite: 45]</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-check-double text-red-500"></i> Time Management [cite: 42]</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-check-double text-red-500"></i> Proactive Mindset [cite: 44]</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-check-double text-red-500"></i> Report Writing (Basic) [cite: 46]</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-check-double text-red-500"></i> Adaptability [cite: 43]</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+                <div class="about-card p-5 border border-green-500/20 bg-green-500/5 h-100">
+                    <h3 class="text-xl font-bold text-green-400 mb-4 font-mono"><i class="fas fa-vial me-2"></i>Technical_Arsenal</h3>
+                    <div class="row g-3">
+                        <div class="col-6">
+                            <p class="text-xs text-gray-500 mb-2 font-mono">// LANGUAGES</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="skill-tag">Python</span><span class="skill-tag">C++</span>
+                                <span class="skill-tag">C</span><span class="skill-tag">SQL</span>
+                                <span class="skill-tag">Bash</span>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <p class="text-xs text-gray-500 mb-2 font-mono">// PLATFORMS</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="skill-tag">TryHackMe</span><span class="skill-tag">HackTheBox</span>
+                                <span class="skill-tag">HackerOne</span> <span class="skill-tag">Intigriti</span><span class="skill-tag">Bugcrowd</span>
+                            </div>
+                        </div>
+                        <div class="col-12 mt-3">
+                            <p class="text-xs text-gray-500 mb-2 font-mono">// TOOLS_EXPLOITATION</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="skill-tag">Burp Suite</span><span class="skill-tag">Metasploit</span>
+                                <span class="skill-tag">Nmap</span><span class="skill-tag">Wireshark</span>
+                                <span class="skill-tag">Nikto</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+                <div class="about-card p-5 border border-gray-800 bg-black/40 h-100">
+                    <h3 class="text-xl font-bold text-white mb-4 font-mono"><i class="fas fa-history me-2"></i>Life_Logs.exe</h3>
+                    <div class="row">
+                        <div class="col-md-6 mb-4 mb-md-0">
+                            <p class="text-xs text-gray-500 mb-3 font-mono">// HOBBIES</p>
+                            <ul class="space-y-2 text-sm text-gray-400">
+                                <li><i class="fas fa-khanda text-red-500 me-2"></i> Karate - Local Champion </li>
+                                <li><i class="fas fa-futbol text-green-500 me-2"></i> Competitive Football </li>
+                                <li><i class="fas fa-campground text-blue-500 me-2"></i> Scouts (2012-Present) </li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <p class="text-xs text-gray-500 mb-3 font-mono">// COMMUNICATIONS</p>
+                            <div class="space-y-3">
+                                <div>
+                                    <span class="text-xs text-gray-500">ARABIC</span>
+                                    <div class="progress bg-gray-900 h-1 mt-1"><div class="progress-bar bg-green-500" style="width: 100%"></div></div>
+                                    <span class="text-xs text-green-400">Native Speaker</span>
+                                </div>
+                                <div>
+                                    <span class="text-xs text-gray-500">ENGLISH</span>
+                                    <div class="progress bg-gray-900 h-1 mt-1"><div class="progress-bar bg-red-500" style="width: 40%"></div></div>
+                                    <span class="text-xs text-red-400">A2 - Reading/Writing</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </section>
+
+        <!-- contact - مفصل -->
+    <section id="contact" class="py-20 px-5 bg-black relative">
+    <div class="container mx-auto">
+        <div class="row g-5 align-items-stretch">
+            <div class="col-lg-5" data-aos="fade-right">
+                <div class="contact-terminal h-100 p-5 bg-gray-900/50 border border-green-500/20 shadow-2xl">
+                    <div class="d-flex gap-2 mb-8">
+                        <div class="w-3 h-3 bg-red-500 rounded-full"></div>
+                        <div class="w-3 h-3 bg-yellow-500 rounded-full"></div>
+                        <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+                    </div>
+                    <h2 class="display-6 fw-bold text-white font-mono mb-5">CONNECTION</h2>
+                    
+                    <div class="contact-methods space-y-5">
+                        <div class="d-flex align-items-center gap-4 p-3 bg-black/30 border border-gray-800 hover:border-green-500 transition-all group">
+                            <i class="fas fa-envelope text-green-400 fs-4"></i>
+                            <div>
+                                <small class="text-gray-500 font-mono">EMAIL_ADDR</small>
+                                <p class="m-0 text-white fw-bold">minasafwt@gmail.com</p>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-center gap-4 p-3 bg-black/30 border border-gray-800 hover:border-green-500 transition-all group">
+                            <i class="fas fa-phone text-green-400 fs-4"></i>
+                            <div>
+                                <small class="text-gray-500 font-mono">VOICE_LINE</small>
+                                <p class="m-0 text-white fw-bold">+20 120 544 9113</p>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-center gap-4 p-3 bg-black/30 border border-gray-800 hover:border-green-500 transition-all group">
+                            <i class="fab fa-whatsapp text-green-400 fs-4"></i>
+                            <div>
+                                <small class="text-gray-500 font-mono">WHATSAPP</small>
+                                <p class="m-0 text-white fw-bold">+20 120 544 9113</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-7" data-aos="fade-left">
+                  <div class="cyber-form-wrapper p-4 p-md-5">
+                      <form id="cyberForm" class="cyber-form-v3">
+                          <div class="row g-4">
+                        
+                              <div class="col-md-6">
+                                  <label class="cyber-label mb-2"><span class="text-success">></span> YOUR_NAME_</label>
+                                  <input type="text" id="cyberName" class="form-control cyber-input" placeholder="Enter your name..." required>
+                              </div>
+                          
+                              <div class="col-md-6">
+                                  <label class="cyber-label mb-2"><span class="text-success">></span> YOUR_EMAIL_</label>
+                                  <input type="email" id="cyberEmail" class="form-control cyber-input" placeholder="Enter your email..." required>
+                              </div>
+                          
+                              <div class="col-12">
+                                  <label class="cyber-label mb-2"><span class="text-success">></span> MISSION_DETAILS_</label>
+                                  <textarea id="cyberMessage" rows="6" class="form-control cyber-input" placeholder="Enter your mission details..." required></textarea>
+                              </div>
+                          
+                              <div class="col-12 mt-4">
+                                  <button type="submit" class="w-100 cyber-btn-execute py-3" id="cyberSubmitBtn">
+                                      <span class="btn-text">SENDING_WHATSAPP</span> 
+                                      <i class="fa-brands fa-whatsapp ms-2"></i>
+                                  </button>
+                              </div>
+                          
+                          </div>
+                      </form>
+                  </div>
+            </div>
+        </div>
+    </div>
+    </section>
+
+        <!-- Footer - رايق ومفصل -->
+  <footer id="footer" class="footer pt-24 pb-12 px-5">
+    <div class="container mx-auto">
+        <div class="row g-5 mb-5">
+            <div class="col-lg-4" data-aos="fade-up">
+                <h4 class="text-3xl font-bold mb-4 text-white">MINA SAFWAT</h4>
+                <p class="text-gray-500 mb-6 fs-6 leading-relaxed">
+                    Independent Security Researcher and Cybersecurity Specialist[cite: 8, 23]. 
+                    Certified in offensive security with a strong focus on red teaming[cite: 10, 16]. 
+                    Top 5% researcher on TryHackMe and active Bug Bounty hunter[cite: 9, 30, 35].
+                </p>
+                <div class="d-flex flex-column gap-2">
+                    <span class="text-green-400 font-mono text-xs"><i class="fas fa-code-branch me-2"></i> HEAD OF CYBER SECURITY @ GDG AAST</span>
+                    <span class="text-gray-600 font-mono text-xs"><i class="fas fa-university me-2"></i> Computer Science - 2nd Year [cite: 13]</span>
+                </div>
+            </div>
+
+            <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                <h4>TECHNICAL_SKILLS</h4>
+                <div class="arsenal-grid-large">
+                    <div class="arsenal-tag-pro"><span>Penetration Testing </span></div>
+                    <div class="arsenal-tag-pro"><span>Red Teaming</span></div>
+                    <div class="arsenal-tag-pro"><span>Vulnerability Assessment </span></div>
+                    <div class="arsenal-tag-pro"><span>Nmap / Metasploit </span></div>
+                    <div class="arsenal-tag-pro"><span>Python / C++ / SQL </span></div>
+                    <div class="arsenal-tag-pro"><span>Linux / CLI </span></div>
+                </div>
+            </div>
+
+            <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                <h4>COMMUNICATION</h4>
+                <div class="space-y-3">
+                    <a href="mailto:minasafwt@gmail.com" class="contact-footer-link">
+                        <i class="fas fa-envelope"></i>
+                        <span>minasafwt@gmail.com </span>
+                    </a>
+                    <a href="tel:+201205449113" class="contact-footer-link">
+                        <i class="fas fa-phone-alt"></i>
+                        <span>+20 120 544 9113 </span>
+                    </a>
+                    <a href="https://wa.me/201205449113" target="_blank" class="contact-footer-link" style="border-left: 3px solid #25d366;">
+                        <i class="fab fa-whatsapp" style="color: #25d366;"></i>
+                        <span>WhatsApp: +20 120 544 9113</span>
+                    </a>
+                </div>
+                <div class="mt-5 d-flex gap-3">
+                    <a href="https://www.linkedin.com/in/mina-safwat-20a693320" class="social-circle-btn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://github.com/minasafwat429-lgtm" class="social-circle-btn"><i class="fab fa-github"></i></a>
+                    <a href="https://www.facebook.com/share/1BCKcs2Gut/" class="social-circle-btn"><i class="fab fa-facebook-f"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <hr class="border-gray-900 my-10">
+
+        <div class="row align-items-center g-4">
+            <div class="col-lg-6 text-center text-lg-start">
+                <p class="text-white font-mono text-lg uppercase tracking-widest mb-0">
+                    All Rights Reserved &copy; 2026 Mina Safwat
+                </p>
+            </div>
+            <div class="col-lg-6 text-center text-lg-end">
+                <div class="sophia-tech-v3">
+                    <div class="text-end">
+                        <p class="text-gray-400 font-mono text-center text-s mb-2">DEVELOPED_BY</p>
+                        <h5 class="text-white fw-bold mb-0">SOPHIA TECH GROUP</h5>
+                    </div>
+                    <a href="https://wa.me/+201278095655" target="_blank" class="sophia-link">
+                        <i class="fab fa-whatsapp me-2"></i> CONTACT_SOPHIA
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+<a href="https://wa.me/201205449113" target="_blank" class="whatsapp-btn" title="Contact Mina Safwat">
+    <i class="fab fa-whatsapp"></i>
+    <span class="pulse-ring"></span>
+</a>
+
+<button id="scrollTopBtn" class="scroll-btn" title="Back to Root">
+    <i class="fas fa-chevron-up"></i>
+</button>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- Three.js -->
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://unpkg.com/three@0.128.0/build/three.module.js"
+            }
+        }
+    </script>
+    <!-- Custom JS -->
+    <script type="module" src="script.js"></script>
+</body>
+</html>
